@@ -8,7 +8,7 @@ public class DataContext : DbContext
     {
         
     }
-    public DbSet<Pantheon> Pantheon { get; set; }
+    public DbSet<Pantheon> Pantheons { get; set; }
     public DbSet<Divine> Divines { get; set; }
 
    

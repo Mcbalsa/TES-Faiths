@@ -10,5 +10,6 @@ namespace API.Service
         public bool updatePantheon(Pantheon pantheon);
 
         public bool deletePantheon(int id);
+        List<Pantheon> GetAllPantheons();
     }
 }

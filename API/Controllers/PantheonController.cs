@@ -38,5 +38,15 @@ namespace API.Controllers
             if (_pantheonService.deletePantheon(id)) return Ok();
             return BadRequest();
         }
+
+        [HttpGet(Name = "GetPantheon")]
+        public ActionResult<List<Pantheon>> Get()
+        {
+            var products = _pantheonService.GetAllPantheons();
+
+            if (products == null) return NotFound();
+
+            return Ok(products);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace API.Service
 
         public bool deletePantheon(int id)
         {
-            _context.Pantheon.Remove(new Pantheon() { Id = id });
+            _context.Pantheons.Remove(new Pantheon() { Id = id });
             return _context.SaveChanges() > 0;
         }
 
@@ -23,17 +23,23 @@ namespace API.Service
         {
             var pantheon = new Pantheon
             {
+
                 Name = dto.Name,
                 //Divines = dto.Divines,
             };
-            _context.Pantheon.Add(pantheon);
+            _context.Pantheons.Add(pantheon);
             return _context.SaveChanges() > 0;
         }
 
         public bool updatePantheon(Pantheon pantheon)
         {
-            _context.Pantheon.Update(pantheon);
+            _context.Pantheons.Update(pantheon);
             return _context?.SaveChanges() > 0;
+        }
+
+        List<Pantheon> IPantheonService.GetAllPantheons()
+        {
+            return _context.Pantheons.ToList();
         }
     }
 }
