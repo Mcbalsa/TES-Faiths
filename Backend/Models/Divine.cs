@@ -5,16 +5,15 @@ namespace Backend.Models
 {
     public class Divine
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        
+        public int Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public string description { get; set; }
+        public string Description { get; set; }
 
-        public List<Divine> aliases { get; set; }
-
-        public Pantheon pantheon { get; set; }
+        public Pantheon Pantheon { get; set; }
+        public int PantheonId { get; set; }
 
     }
 }

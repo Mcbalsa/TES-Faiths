@@ -12,6 +12,8 @@ namespace Backend.Service
 
             public bool deletePantheon(int id);
             List<Pantheon> GetAllPantheons();
+
+            List<Divine> GetDivines(string pantheon);
        }
     
 

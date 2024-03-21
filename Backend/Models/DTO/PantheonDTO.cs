@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Backend.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -12,6 +13,6 @@ namespace Backend.Models.DTO
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
-        // public List<Divine> Divines { get; set; }
+        //public List<Divine> Divines { get; set; }
     }
 }

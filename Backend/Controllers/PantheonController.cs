@@ -17,14 +17,14 @@ namespace Backend.Controllers
             _pantheonService = pantheonService;
         }
 
-        [HttpPost(Name = "InsertPantheon")]
+        [HttpPost("Insert", Name = "InsertPantheon")]
         public ActionResult InsertPantehon(PantheonDTO pantheonDTO)
         {
             if (_pantheonService.insertPantheon(pantheonDTO)) return Ok();
             return BadRequest();
         }
 
-        [HttpPut(Name = "UpdatePantheon")]
+        [HttpPut("Update", Name = "UpdatePantheon")]
         public ActionResult UpdatePantheon(Pantheon pantheon)
         {
             if (_pantheonService.updatePantheon(pantheon)) return Ok();
@@ -32,21 +32,31 @@ namespace Backend.Controllers
         }
 
 
-        [HttpDelete(Name = "DeletePantheon")]
+        [HttpDelete("Delete", Name = "DeletePantheon")]
         public ActionResult DeletePantheon(int id)
         {
             if (_pantheonService.deletePantheon(id)) return Ok();
             return BadRequest();
         }
 
-        [HttpGet(Name = "GetPantheon")]
+        [HttpGet("GetAll", Name = "GetAllPantheons")]
         public ActionResult<List<Pantheon>> Get()
         {
-            var products = _pantheonService.GetAllPantheons();
+            var pantheons = _pantheonService.GetAllPantheons();
 
-            if (products == null) return NotFound();
+            if (pantheons == null) return NotFound();
 
-            return Ok(products);
+            return Ok(pantheons);
+        }
+
+        [HttpGet("GetPantheon", Name = "GetPantheon")]
+        public ActionResult<List<Divine>> GetPantheon(string name)
+        {
+            var pantheons = _pantheonService.GetDivines(name);
+
+            if (pantheons == null) return NotFound();
+
+            return Ok(pantheons);
         }
     }
 }
